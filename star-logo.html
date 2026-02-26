@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可爱五角星Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .star-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .star {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(145deg, #FFD93D 0%, #FF6B6B 100%);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: drop-shadow(0 8px 20px rgba(255, 107, 107, 0.4));
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .star::before {
+            content: '';
+            position: absolute;
+            top: 35%;
+            left: 38%;
+            width: 20%;
+            height: 20%;
+            background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
+            clip-path: circle(50%);
+            opacity: 0.6;
+        }
+
+        .face {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .eyes {
+            display: flex;
+            gap: 25px;
+        }
+
+        .eye {
+            width: 18px;
+            height: 18px;
+            background: #2d3748;
+            border-radius: 50%;
+            position: relative;
+            animation: blink 4s infinite;
+        }
+
+        .eye::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cheeks {
+            position: absolute;
+            top: 70%;
+            width: 140%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cheek {
+            width: 16px;
+            height: 10px;
+            background: #ff9999;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .mouth {
+            width: 20px;
+            height: 12px;
+            border: 3px solid #2d3748;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            margin-top: 5px;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) {
+            top: -10px;
+            right: -5px;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            bottom: 20px;
+            left: -10px;
+            width: 8px;
+            height: 8px;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle:nth-child(3) {
+            top: 40%;
+            right: -15px;
+            width: 10px;
+            height: 10px;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes blink {
+            0%, 45%, 55%, 100% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(0.1);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                text-shadow: 0 4px 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 217, 61, 0.3);
+            }
+        }
+
+        .sub-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: -20px;
+        }
+
+        /* 可爱的小装饰星星 */
+        .decor-star {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .decor-star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0.5s; }
+        .decor-star:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .decor-star:nth-child(3) { bottom: 30%; left: 8%; animation-delay: 1.5s; }
+        .decor-star:nth-child(4) { bottom: 15%; right: 10%; animation-delay: 2s; }
+    </style>
+</head>
+<body>
+    <div class="decor-star"></div>
+    <div class="decor-star"></div>
+    <div class="decor-star"></div>
+    <div class="decor-star"></div>
+
+    <div class="logo-container">
+        <div class="star-wrapper">
+            <div class="star"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="face">
+                <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="cheeks">
+                    <div class="cheek"></div>
+                    <div class="cheek"></div>
+                </div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+        <div class="logo-text">✨ STAR</div>
+        <div class="sub-text">闪耀的每一天</div>
+    </div>
+</body>
+</html>
